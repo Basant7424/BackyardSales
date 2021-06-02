@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+    {# Show all the categories here! #}
+    <div align="center">
+        {% for category in Categories %}
+            <a href="{% url 'catDetail' category.slug %}"><h1>{{ category }}</h1></a>
+            {% for subCat in SubCategories %}
+                {% if subCat.ParentCategory == category %}
+                    <a href="{% url 'subCatdetail' subCat.slug %}"> {{ subCat }} </a>
+                    <br>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+
+    <a href="{% url 'requestItem' %}">Request a new Item</a>
+
+
+
+{% endblock %}

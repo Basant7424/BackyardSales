@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body %}
+
+    <form action="" method="post" enctype="multipart/form-data" id="itemForm" data-subCat-url="{% url 'Dashboard:ajax_load_subCats'  %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit"> Submit </button>
+    </form>
+
+
+  <script src="{% static "js/jquery1.js"  %}"></script>
+  <script src="{% static "js/sendCategoryData.js" %}"></script>
+
+{% endblock %}
